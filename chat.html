@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barns – Chat</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body data-page="chat">
+  <div class="screen">
+          <header class="chat-header">
+        <a class="icon-btn back" href="index.html" aria-label="Back">←</a>
+        <div class="chat-title"><img src="imgs/HomePage/bot.png" alt="" /><div><div class="title">BarnieX</div><small>AI Assistant</small></div></div>
+      </header>
+
+    <main class="chat-body" id="chat-body" role="log" aria-live="polite">
+      <div class="msg bot">Hey there! I'm BarnieX, your friendly coffee buddy. How's your day going so far? Any drink on your mind?</div>
+    </main>
+
+    <form class="chat-input" id="chat-form">
+      <input id="chat-text" placeholder="Write your message .." autocomplete="off" />
+      <button class="send" type="submit">➤</button>
+    </form>
+
+    <nav class="bottom-nav">
+      <a href="index.html" class="item active"><span class="ico"><img src="imgs/HomePage/Home icon.svg" alt="Home"></span><span>Home</span></a>
+      <a href="tree.html" class="item"><span class="ico"><img src="imgs/HomePage/Tree icon.svg" alt="Tree"></span><span>Tree</span></a>
+      <a href="#" class="item disabled"><span class="ico"><img src="imgs/HomePage/Order icon.svg" alt="Orders"></span><span>Orders</span></a>
+      <a href="#" class="item disabled"><span class="ico"><img src="imgs/HomePage/Account icon.svg" alt="Account"></span><span>Account</span></a>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

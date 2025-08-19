@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barns – Login</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body data-page="login">
+  <div class="screen">
+    <div class="login-container">
+      <!-- شعار التطبيق -->
+      <div class="login-logo">
+        <img src="imgs/HomePage/logo .svg" alt="Barn's Logo" class="logo-large">
+        <p class="brand-tagline">Your daily coffee, your green tree</p>
+      </div>
+
+      <!-- نموذج تسجيل الدخول -->
+      <div class="login-form">
+        <h2 class="welcome-title">Welcome!</h2>
+        <p class="welcome-subtitle">Enter your name to start your Barns journey</p>
+        
+        <form id="loginForm" class="form">
+          <div class="input-group">
+            <label for="userName" class="input-label">Name</label>
+            <input 
+              type="text" 
+              id="userName" 
+              name="userName" 
+              placeholder="Type your name here..."
+              required
+              autocomplete="off"
+              class="name-input"
+            >
+            <div class="input-icon">👤</div>
+          </div>
+          
+          <button type="submit" class="login-btn">
+            <span>Start</span>
+            <span class="btn-icon">☕</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- تصميم جميل في الأسفل -->
+      <div class="login-decoration">
+        <div class="coffee-beans">
+          <span>🫘</span>
+          <span>🫘</span>
+          <span>🫘</span>
+        </div>
+        <div class="wave-decoration"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

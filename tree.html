@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barns – Tree</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body data-page="tree">
+  <div class="screen">
+          <header class="app-header compact">
+        <div class="status-bar"></div>
+        <div class="brand small">
+          <img class="brand-logo" src="imgs/HomePage/logo.png" alt="barn's logo">
+        </div>
+        <div class="header-wave"></div>
+      </header>
+
+    <main class="tree-page">
+      <!-- Leaf counters bar under header -->
+      <section class="leaf-counter-bar" aria-label="Leaf counters">
+        <div class="lcb-inner">
+        <!-- Green counter -->
+        <div class="lcb-item is-green">
+          <span class="lcb-circle"><img src="imgs/Tree/Counter/دائرة بيضاء.svg" alt="" aria-hidden="true"></span>
+          <span class="lcb-bean"><img src="imgs/Tree/Counter/بن خضراء.svg" alt="Green"></span>
+          <div class="lcb-texts">
+            <div class="lcb-num" id="stat-green">0</div>
+            <div class="lcb-label">Green</div>
+          </div>
+        </div>
+        <!-- Gold counter -->
+        <div class="lcb-item is-gold">
+          <span class="lcb-circle"><img src="imgs/Tree/Counter/دائرة بيضاء.svg" alt="" aria-hidden="true"></span>
+          <span class="lcb-bean"><img src="imgs/Tree/Counter/بن ذهبية.svg" alt="Gold"></span>
+          <div class="lcb-texts">
+            <div class="lcb-num" id="stat-gold">0</div>
+            <div class="lcb-label">Gold</div>
+          </div>
+        </div>
+        <!-- Total on right -->
+        <div class="lcb-total">
+          <div class="lcb-total-num" id="stat-total">0</div>
+        </div>
+        </div>
+      </section>
+
+      <!-- Friends + Streak row -->
+      <section class="social-row" aria-label="Friends and streak">
+      <a class="social-pill friends-pill" href="friends.html">
+        <img class="sp-rect" src="imgs/Tree/Friends/مستطيل اخضر.svg" alt="" aria-hidden="true"/>
+        <span class="sp-avatars">
+          <img src="imgs/Tree/Friends/Omar.png" alt="Omar"/>
+          <img src="imgs/Tree/Friends/Osayd.png" alt="Osayd"/>
+          <img src="imgs/Tree/Friends/Omar.png" alt="Omar"/>
+        </span>
+        <span class="sp-label">Friends</span>
+      </a>
+      <div class="social-pill streak-pill">
+        <img class="sp-rect" src="imgs/Tree/Streak/مستطيل اخضر.svg" alt="" aria-hidden="true"/>
+        <span class="sp-circle"><img src="imgs/Tree/Streak/دائرة بيضاء.svg" alt="" aria-hidden="true"></span>
+        <span class="sp-fire"><img src="imgs/Tree/Streak/fire.svg" alt="Streak"></span>
+        <span class="sp-count" id="streak">0</span>
+        <span class="sp-label">Streak</span>
+      </div>
+      </section>
+
+      <!-- Tree illustration -->
+      <section class="tree-illustration" aria-label="Coffee tree">
+        <div class="tree-wrapper">
+          <div id="treeCanvas" class="tree-canvas">
+            <div id="treeLayer" class="tree-layer"></div>
+          </div>
+          <img src="imgs/Tree/stem.svg" onerror="this.src='imgs/Tree/Stem.png'" alt="stem" class="tree-stem">
+          <button class="ground-btn" id="drink-btn">
+            <img src="imgs/Tree/grass.png" alt="ground" class="ground-img"/>
+            <span class="ground-label">Drink</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    
+
+    <nav class="bottom-nav">
+      <a href="index.html" class="item"><span class="ico"><img src="imgs/HomePage/Home icon.svg" alt="Home"></span><span>Home</span></a>
+      <a href="tree.html" class="item active"><span class="ico"><img src="imgs/HomePage/Tree icon.svg" alt="Tree"></span><span>Tree</span></a>
+      <a href="#" class="item disabled"><span class="ico"><img src="imgs/HomePage/Order icon.svg" alt="Orders"></span><span>Orders</span></a>
+      <a href="#" class="item disabled"><span class="ico"><img src="imgs/HomePage/Account icon.svg" alt="Account"></span><span>Account</span></a>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

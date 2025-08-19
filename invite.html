@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barns – Barners</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body data-page="invite">
+  <div class="screen">
+    <header class="invite-header">
+      <button id="invite-back" class="icon-btn back" title="Back">←</button>
+      <div class="invite-title">Barners</div>
+      <div></div>
+    </header>
+
+    <main class="invite-main">
+      <div class="invite-card">
+        <div class="invite-list" id="invite-list">
+          <div class="person is-gold">
+            <img src="imgs/qrCode/person.svg" alt="person" class="person-ico"/>
+            <span class="name">Mohammad Al zain</span>
+          </div>
+        </div>
+      </div>
+      <div class="invite-footer">
+        <div class="scan-qr-cta" id="scan-qr-cta">Scan the QR code</div>
+        <div class="add-barner-cta" id="add-barner-cta">Add barner</div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Confirm leave modal -->
+  <div id="leave-modal" class="confirm-modal hidden">
+    <div class="confirm-modal__backdrop"></div>
+    <div class="confirm-modal__dialog" role="dialog" aria-modal="true" aria-label="Leave group">
+      <h3 class="confirm-title">Leave group?</h3>
+      <p class="confirm-text">Your current session will be cleared.</p>
+      <div class="confirm-actions">
+        <button class="btn btn-cancel" id="leave-cancel">Cancel</button>
+        <button class="btn btn-leave" id="leave-ok">Leave</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const INV_MEM_KEY = 'barns-invite-members';
+
+      const back = document.getElementById('invite-back');
+      const modal = document.getElementById('leave-modal');
+      const cancelBtn = document.getElementById('leave-cancel');
+      const okBtn = document.getElementById('leave-ok');
+      function openModal(){ modal && modal.classList.remove('hidden'); }
+      function closeModal(){ modal && modal.classList.add('hidden'); }
+      if (back) back.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
+      if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+      const backdrop = document.querySelector('#leave-modal .confirm-modal__backdrop');
+      if (backdrop) backdrop.addEventListener('click', closeModal);
+      if (okBtn) okBtn.addEventListener('click', () => {
+        try { localStorage.setItem(INV_MEM_KEY, JSON.stringify(["Mohammad Al zain"])); } catch {}
+        window.location.href = 'qr.html';
+      });
+      const scan = document.getElementById('scan-qr-cta');
+      if (scan) scan.addEventListener('click', () => { window.location.href = 'qr-invite.html'; });
+
+      const queue = [
+        "Omar Al-Ali",
+        "Sultan Al-Salmi",
+        "Osayd Jameel",
+        "Feras Kateb",
+        "Ayman Alghamdi",
+        "Khaled Alsubhi"
+      ]; 
+      let nextIdx = 0;
+      const addBtn = document.getElementById('add-barner-cta');
+      const list = document.getElementById('invite-list');
+
+      function loadMembers(){
+        try { return JSON.parse(localStorage.getItem(INV_MEM_KEY)) || ["Mohammad Al zain"]; }
+        catch { return ["Mohammad Al zain"]; }
+      }
+      function saveMembers(m){ try { localStorage.setItem(INV_MEM_KEY, JSON.stringify(m)); } catch {} }
+
+      // Ensure default base member exists in storage and render any saved extras
+      let members = loadMembers();
+      if (!Array.isArray(members) || members.length === 0) { members = ["Mohammad Al zain"]; saveMembers(members); }
+      // render saved extras beyond Mohammad
+      members.filter(n => n !== "Mohammad Al zain").forEach((name) => {
+        const item = document.createElement('div');
+        item.className = 'person';
+        item.innerHTML = '<img src="imgs/qrCode/person.svg" alt="person" class="person-ico"/>' +
+                         '<span class="name">' + name + '</span>';
+        list.appendChild(item);
+      });
+      if (addBtn && list) {
+        addBtn.addEventListener('click', () => {
+          if (nextIdx >= queue.length) return;
+          const name = queue[nextIdx++];
+          const item = document.createElement('div');
+          item.className = 'person';
+          item.innerHTML = '<img src="imgs/qrCode/person.svg" alt="person" class="person-ico"/>' +
+                           '<span class="name">' + name + '</span>';
+          list.appendChild(item);
+          // persist
+          members.push(name);
+          saveMembers(members);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+
+

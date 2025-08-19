@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barns – Rate</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body data-page="rate">
+  <div class="screen">
+          <header class="app-header compact">
+        <div class="brand small">
+          <img class="brand-logo" src="imgs/HomePage/logo.png" alt="barn's logo">
+        </div>
+        <div class="header-wave"></div>
+      </header>
+
+    <main class="rate-split">
+      <section class="rate-success" aria-live="polite" aria-label="Scan result">
+        <div class="rs-icon">✔</div>
+        <div class="rs-text">QR scanned successfully</div>
+      </section>
+      <section class="rate-main">
+        <div class="rate-card">
+          <img src="imgs/HomePage/cup.png" alt="" class="cup" />
+          <h3>Rate your Barns experience</h3>
+          <div class="beans-row rate-beans" id="rate-beans" aria-label="Rating">
+            <span class="rate-bean" role="button" tabindex="0"></span>
+            <span class="rate-bean" role="button" tabindex="0"></span>
+            <span class="rate-bean" role="button" tabindex="0"></span>
+            <span class="rate-bean" role="button" tabindex="0"></span>
+            <span class="rate-bean" role="button" tabindex="0"></span>
+          </div>
+          <textarea id="rate-note" placeholder="Your notes .."></textarea>
+          <button id="rate-submit" class="primary">Send Rating</button>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <a href="index.html" class="item"><span class="ico"><img src="imgs/HomePage/Home icon.svg" alt="Home"></span><span>Home</span></a>
+      <a href="tree.html" class="item active"><span class="ico"><img src="imgs/HomePage/Tree icon.svg" alt="Tree"></span><span>Tree</span></a>
+      <a href="#" class="item disabled"><span class="ico"><img src="imgs/HomePage/Order icon.svg" alt="Orders"></span><span>Orders</span></a>
+      <a href="#" class="item disabled"><span class="ico"><img src="imgs/HomePage/Account icon.svg" alt="Account"></span><span>Account</span></a>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

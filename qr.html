@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barns – QR</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+</head>
+<body data-page="qr">
+  <div class="screen">
+          <header class="qr-header">
+        <button id="qr-close" class="icon-btn back" title="Back">✕</button>
+        <div class="qr-stats">
+          <div><span>Green</span> <strong id="qr-green">0</strong></div>
+          <div><span>Gold</span> <strong id="qr-gold">0</strong></div>
+          <div><strong id="qr-total" class="total-num">0</strong></div>
+        </div>
+      </header>
+
+    <main class="qr-main">
+      <div class="qr-box" id="qr-box">
+        <video id="qr-video" autoplay playsinline muted style="width:220px; height:220px; border-radius:12px; background:#000"></video>
+        <canvas id="qr-canvas" width="220" height="220" style="display:none"></canvas>
+        <div class="qr-brand">
+          <img class="qr-logo" src="imgs/HomePage/logo .svg" alt="barn's logo" />
+        </div>
+        <div class="qr-hint">Allow camera and scan the code</div>
+      </div>
+      <div class="qr-cta">
+        <button class="qr-drink-btn" id="qr-drink-btn">Drink with barners</button>
+      </div>
+    </main>
+
+    <nav class="bottom-nav">
+      <a href="index.html" class="item"><span class="ico"><img src="imgs/HomePage/Home icon.svg" alt="Home"></span><span>Home</span></a>
+      <a href="tree.html" class="item active"><span class="ico"><img src="imgs/HomePage/Tree icon.svg" alt="Tree"></span><span>Tree</span></a>
+      <a href="#" class="item disabled"><span class="ico"><img src="imgs/HomePage/Order icon.svg" alt="Orders"></span><span>Orders</span></a>
+      <a href="#" class="item disabled"><span class="ico"><img src="imgs/HomePage/Account icon.svg" alt="Account"></span><span>Account</span></a>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

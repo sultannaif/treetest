@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barns – Confirm Scan</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body data-page="confirm-scan">
+  <div class="screen" style="display:grid;place-items:center;min-height:100vh;background:#fff">
+    <div class="qr-box" style="text-align:center;padding:24px;border-radius:16px;border:1px solid #e6eee9">
+      <h3 style="margin:0 0 8px;color:#0f5b46">Scan confirmed</h3>
+      <p style="margin:0;color:#5a6f6a">You can close this page.</p>
+    </div>
+  </div>
+  <script>
+    // On load, set a storage flag the opener/listener can catch, then try to close
+    (function(){
+      const params = new URLSearchParams(window.location.search);
+      const token = params.get('t') || '';
+      if (token) {
+        try { localStorage.setItem(`share_qr_scanned_${token}`, '1'); } catch {}
+      }
+      // Attempt to close this tab (may be blocked), otherwise just show message
+      try { window.close(); } catch {}
+    })();
+  </script>
+</body>
+</html>
+
+

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barns – QR (Invite)</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+</head>
+<body data-page="qr-invite">
+  <div class="screen">
+    <header class="qr-header">
+      <button id="qr-close" class="icon-btn back" title="Back">✕</button>
+      <div class="qr-stats"></div>
+    </header>
+
+    <main class="qr-main">
+      <div class="qr-box" id="qr-box">
+        <video id="qr-video" autoplay playsinline muted style="width:220px; height:220px; border-radius:12px; background:#000"></video>
+        <canvas id="qr-canvas" width="220" height="220" style="display:none"></canvas>
+        <div class="qr-brand">
+          <img class="qr-logo" src="imgs/HomePage/logo .svg" alt="barn's logo" />
+        </div>
+        <div class="qr-hint">Scan the QR code</div>
+      </div>
+
+      <div class="invite-card" id="qr-invite-list" style="margin-top:16px; width:100%; max-width:320px; height:calc(4 * 64px + 3 * 12px); overflow:auto; -webkit-overflow-scrolling:touch;">
+        <!-- members appended here -->
+      </div>
+    </main>
+
+    <nav class="bottom-nav">
+      <a href="index.html" class="item"><span class="ico"><img src="imgs/HomePage/Home icon.svg" alt="Home"></span><span>Home</span></a>
+      <a href="tree.html" class="item active"><span class="ico"><img src="imgs/HomePage/Tree icon.svg" alt="Tree"></span><span>Tree</span></a>
+      <a href="#" class="item disabled"><span class="ico"><img src="imgs/HomePage/Order icon.svg" alt="Orders"></span><span>Orders</span></a>
+      <a href="#" class="item disabled"><span class="ico"><img src="imgs/HomePage/Account icon.svg" alt="Account"></span><span>Account</span></a>
+    </nav>
+  </div>
+
+  <!-- Confirm leave modal -->
+  <div id="leave-modal" class="confirm-modal hidden">
+    <div class="confirm-modal__backdrop"></div>
+    <div class="confirm-modal__dialog" role="dialog" aria-modal="true" aria-label="Leave group">
+      <h3 class="confirm-title">Leave group?</h3>
+      <p class="confirm-text">Your current session will be cleared.</p>
+      <div class="confirm-actions">
+        <button class="btn btn-cancel" id="leave-cancel">Cancel</button>
+        <button class="btn btn-leave" id="leave-ok">Leave</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const INV_MEM_KEY = 'barns-invite-members';
+    function loadMembers(){
+      try { return JSON.parse(localStorage.getItem(INV_MEM_KEY)) || ["Mohammad Al zain"]; }
+      catch { return ["Mohammad Al zain"]; }
+    }
+
+    function renderMembers(){
+      const list = document.getElementById('qr-invite-list');
+      if (!list) return;
+      list.innerHTML = '';
+      const members = loadMembers();
+      members.forEach((name) => {
+        const wrap = document.createElement('div');
+        wrap.className = 'person' + (name === 'Mohammad Al zain' ? ' is-gold' : '');
+        wrap.innerHTML = '<img src="imgs/qrCode/person.svg" class="person-ico" alt="person"/>' +
+                         '<span class="name">' + name + '</span>';
+        list.appendChild(wrap);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderMembers();
+      const back = document.getElementById('qr-close');
+      const modal = document.getElementById('leave-modal');
+      const cancelBtn = document.getElementById('leave-cancel');
+      const okBtn = document.getElementById('leave-ok');
+      function openModal(){ modal && modal.classList.remove('hidden'); }
+      function closeModal(){ modal && modal.classList.add('hidden'); }
+      if (back) back.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
+      if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+      const backdrop = document.querySelector('#leave-modal .confirm-modal__backdrop');
+      if (backdrop) backdrop.addEventListener('click', closeModal);
+      if (okBtn) okBtn.addEventListener('click', () => {
+        try { if (typeof stopQrCamera === 'function') stopQrCamera(); } catch {}
+        try { localStorage.setItem(INV_MEM_KEY, JSON.stringify(["Mohammad Al zain"])); } catch {}
+        window.location.href = 'qr.html';
+      });
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
+
+

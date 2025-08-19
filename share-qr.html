@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barns – Share QR</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body data-page="share-qr">
+  <div class="screen">
+    <header class="qr-header">
+      <button id="share-qr-close" class="icon-btn back" title="Close">✕</button>
+      <div class="qr-stats"></div>
+    </header>
+
+    <main class="qr-main">
+      <div class="qr-box" id="share-qr-box">
+        <img id="share-qr-img" class="qr-img" src="imgs/qrCode/sample_qr.png" alt="Share this QR" />
+        <div class="qr-brand">
+          <img class="qr-logo" src="imgs/HomePage/logo .svg" alt="barn's logo" />
+        </div>
+        <button class="qr-invite-btn" id="qr-invite-btn">View members</button>
+      </div>
+    </main>
+
+    <nav class="bottom-nav">
+      <a href="index.html" class="item"><span class="ico"><img src="imgs/HomePage/Home icon.svg" alt="Home"></span><span>Home</span></a>
+      <a href="tree.html" class="item active"><span class="ico"><img src="imgs/HomePage/Tree icon.svg" alt="Tree"></span><span>Tree</span></a>
+      <a href="#" class="item disabled"><span class="ico"><img src="imgs/HomePage/Order icon.svg" alt="Orders"></span><span>Orders</span></a>
+      <a href="#" class="item disabled"><span class="ico"><img src="imgs/HomePage/Account icon.svg" alt="Account"></span><span>Account</span></a>
+    </nav>
+  </div>
+
+  <script>
+    // Utility: get project base URL for same-origin links
+    function baseUrl(){
+      const { origin, pathname } = window.location;
+      const basePath = pathname.replace(/[^\/]*$/, ''); // trim file name
+      return origin + basePath;
+    }
+
+    // Generate a random token
+    function randomToken(){
+      return Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2);
+    }
+
+    // Build QR image URL using a public QR service
+    function makeQrUrl(data){
+      const encoded = encodeURIComponent(data);
+      return `https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=${encoded}`;
+    }
+
+    // Close handler + init
+    document.addEventListener('DOMContentLoaded', () => {
+      const closeBtn = document.getElementById('share-qr-close');
+      if (closeBtn) closeBtn.addEventListener('click', () => {
+        window.history.length > 1 ? window.history.back() : window.location.replace('tree.html');
+      });
+
+      // Create a unique token and encode a same-origin confirmation URL in the QR
+      const token = randomToken();
+      const confirmUrl = baseUrl() + `share-confirm.html?t=${token}`;
+      const img = document.getElementById('share-qr-img');
+      if (img) img.src = makeQrUrl(confirmUrl);
+
+      // Listen for storage event from confirmation page (same origin, same device)
+      const key = `share_qr_scanned_${token}`;
+      function tryClose(e){
+        if (!e || e.key === key) {
+          // Close this page by navigating back or to tree
+          window.history.length > 1 ? window.history.back() : window.location.replace('tree.html');
+        }
+      }
+      window.addEventListener('storage', tryClose);
+
+      // Also poll localStorage as a fallback
+      const timer = setInterval(() => {
+        try { if (localStorage.getItem(key) === '1') tryClose({ key }); } catch {}
+      }, 1000);
+      window.addEventListener('beforeunload', () => clearInterval(timer));
+
+      // Navigate to invite page when hint button is clicked
+      const inviteBtn = document.getElementById('qr-invite-btn');
+      if (inviteBtn) inviteBtn.addEventListener('click', () => {
+        window.location.href = 'invite.html';
+      });
+    });
+  </script>
+</body>
+</html>
+
+

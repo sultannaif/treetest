@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barns – Friend</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body data-page="friends">
+  <div class="screen">
+          <header class="app-header compact">
+        <div class="status-bar"></div>
+        <div class="brand small">
+          <img class="brand-logo" src="imgs/HomePage/logo.png" alt="barn's logo">
+        </div>
+        <div class="header-wave"></div>
+      </header>
+
+    <main class="friends-page">
+      <!-- Section 1: Profile (top) -->
+      <section class="fp-section fp-profile" aria-label="Profile">
+        <div class="fp-profile-card">
+          <img class="fp-avatar" src="imgs/friends/section1/mohammad alzain.jpeg" alt="Profile" />
+          <div class="fp-name">Mohammed Alzain</div>
+        </div>
+      </section>
+
+      <!-- Section 2: Counters bar (leaves, gold, streak, friends) -->
+      <section class="fp-section fp-counters" aria-label="Stats">
+        <div class="fp-counters-bar">
+          <div class="pill sm green">
+            <img class="ico" src="imgs/friends/section2/whiteLeaf.svg" alt="Green" />
+            <span class="num" id="friend-green">0</span>
+          </div>
+          <div class="pill sm gold">
+            <img class="ico" src="imgs/friends/section2/whiteLeaf.svg" alt="Gold" />
+            <span class="num" id="friend-gold">0</span>
+          </div>
+          <div class="pill sm orange">
+            <img class="ico" src="imgs/friends/section2/streak.svg" alt="Streak" />
+            <span class="num" id="streak">0</span>
+          </div>
+          <div class="pill big yellow">
+            <img class="ico" src="imgs/friends/section2/people.svg" alt="Friends" />
+            <span class="num" id="friends-count">11</span>
+            <span class="label">friends</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Friends list -->
+      <section class="fp-section fp-friends" aria-label="Friends list">
+        <div class="fp-friends-grid">
+          <div class="fp-friend-card">
+            <img class="photo" src="imgs/friends/section3/spark.png" alt="Spark" />
+            <div class="meta">
+              <div class="name">Osayd</div>
+              <div class="row"><img src="imgs/friends/section3/people.svg" alt="friends" /><span>10</span><img src="imgs/friends/section3/streak.svg" alt="streak" /><span>35</span></div>
+            </div>
+          </div>
+          <div class="fp-friend-card">
+            <img class="photo" src="imgs/friends/section3/Omar.png" alt="Omar" />
+            <div class="meta">
+              <div class="name">Omar</div>
+              <div class="row"><img src="imgs/friends/section3/people.svg" alt="friends" /><span>10</span><img src="imgs/friends/section3/streak.svg" alt="streak" /><span>35</span></div>
+            </div>
+          </div>
+          <div class="fp-friend-card">
+            <img class="photo" src="imgs/friends/section3/Sultan.png" alt="Sultan" />
+            <div class="meta">
+              <div class="name">Sultan</div>
+              <div class="row"><img src="imgs/friends/section3/people.svg" alt="friends" /><span>10</span><img src="imgs/friends/section3/streak.svg" alt="streak" /><span>35</span></div>
+            </div>
+          </div>
+          <div class="fp-friend-card">
+            <img class="photo" src="imgs/friends/section3/ayman.jpeg" alt="Ayman" />
+            <div class="meta">
+              <div class="name">Ayman</div>
+              <div class="row"><img src="imgs/friends/section3/people.svg" alt="friends" /><span>12</span><img src="imgs/friends/section3/streak.svg" alt="streak" /><span>20</span></div>
+            </div>
+          </div>
+          <div class="fp-friend-card">
+            <img class="photo" src="imgs/friends/section3/feras.png" alt="Feras" />
+            <div class="meta">
+              <div class="name">Feras</div>
+              <div class="row"><img src="imgs/friends/section3/people.svg" alt="friends" /><span>9</span><img src="imgs/friends/section3/streak.svg" alt="streak" /><span>15</span></div>
+            </div>
+          </div>
+          <div class="fp-friend-card">
+            <img class="photo" src="imgs/friends/section3/hasan.jpg" alt="Hasan" />
+            <div class="meta">
+              <div class="name">Hasan</div>
+              <div class="row"><img src="imgs/friends/section3/people.svg" alt="friends" /><span>14</span><img src="imgs/friends/section3/streak.svg" alt="streak" /><span>28</span></div>
+            </div>
+          </div>
+          <div class="fp-friend-card">
+            <img class="photo" src="imgs/people/Khaled.jpeg" alt="Khaled" />
+            <div class="meta">
+              <div class="name">Khaled</div>
+              <div class="row"><img src="imgs/friends/section3/people.svg" alt="friends" /><span>11</span><img src="imgs/friends/section3/streak.svg" alt="streak" /><span>32</span></div>
+            </div>
+          </div>
+          <div class="fp-friend-card">
+            <img class="photo" src="imgs/friends/section3/nawal.jpeg" alt="Nawal" />
+            <div class="meta">
+              <div class="name">Nawal</div>
+              <div class="row"><img src="imgs/friends/section3/people.svg" alt="friends" /><span>8</span><img src="imgs/friends/section3/streak.svg" alt="streak" /><span>24</span></div>
+            </div>
+          </div>
+          <div class="fp-friend-card">
+            <img class="photo" src="imgs/friends/section3/mawaddah.jpeg" alt="Mawaddah" />
+            <div class="meta">
+              <div class="name">Mawaddah</div>
+              <div class="row"><img src="imgs/friends/section3/people.svg" alt="friends" /><span>10</span><img src="imgs/friends/section3/streak.svg" alt="streak" /><span>18</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Trees list -->
+      <section class="fp-section fp-trees" aria-label="Your trees">
+        <div class="fp-trees-row">
+          <div class="fp-tree">
+            <div class="fp-tree-img">
+              <img src="imgs/friends/section4/tree1.png" alt="Tree 1" />
+            </div>
+            <div class="label">TREE1</div>
+          </div>
+          <div class="fp-tree is-locked">
+            <div class="fp-tree-img">
+              <img src="imgs/friends/section4/tree2.png" alt="Tree 2" />
+            </div>
+            <div class="label">TREE2</div>
+          </div>
+          <div class="fp-tree is-locked">
+            <div class="fp-tree-img">
+              <img src="imgs/friends/section4/tree3.png" alt="Tree 3" />
+            </div>
+            <div class="label">TREE3</div>
+          </div>
+          <div class="fp-tree is-locked">
+            <div class="fp-tree-img">
+              <img src="imgs/friends/section4/tree4.png" alt="Tree 4" />
+            </div>
+            <div class="label">TREE4</div>
+          </div>
+          <div class="fp-tree is-locked">
+            <div class="fp-tree-img">
+              <img src="imgs/friends/section4/tree5.png" alt="Tree 5" />
+            </div>
+            <div class="label">TREE5</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <a href="index.html" class="item"><span class="ico"><img src="imgs/HomePage/Home icon.svg" alt="Home"></span><span>Home</span></a>
+      <a href="tree.html" class="item active"><span class="ico"><img src="imgs/HomePage/Tree icon.svg" alt="Tree"></span><span>Tree</span></a>
+      <a href="#" class="item disabled"><span class="ico"><img src="imgs/HomePage/Order icon.svg" alt="Orders"></span><span>Orders</span></a>
+      <a href="#" class="item disabled"><span class="ico"><img src="imgs/HomePage/Account icon.svg" alt="Account"></span><span>Account</span></a>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
